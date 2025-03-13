@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pacaldo;
+import db.dbConnector;
 import java.util.regex.*;
 import javax.swing.JOptionPane;
 /**
@@ -39,7 +40,7 @@ public class Registerform extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         pn = new javax.swing.JTextField();
         pwd = new javax.swing.JTextField();
-        fname = new javax.swing.JTextField();
+        fn = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -99,17 +100,17 @@ public class Registerform extends javax.swing.JFrame {
         });
         jPanel1.add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 250, -1));
 
-        fname.addActionListener(new java.awt.event.ActionListener() {
+        fn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fnameActionPerformed(evt);
+                fnActionPerformed(evt);
             }
         });
-        fname.addKeyListener(new java.awt.event.KeyAdapter() {
+        fn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                fnameKeyReleased(evt);
+                fnKeyReleased(evt);
             }
         });
-        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 250, -1));
+        jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 250, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,11 +196,11 @@ public class Registerform extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pwdActionPerformed
 
-    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
+    private void fnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnActionPerformed
         // TODO add your handling code here:
       
        
-    }//GEN-LAST:event_fnameActionPerformed
+    }//GEN-LAST:event_fnActionPerformed
 
     private void edActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edActionPerformed
         // TODO add your handling code here:
@@ -214,22 +215,45 @@ public class Registerform extends javax.swing.JFrame {
     }//GEN-LAST:event_usnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-         fname.setText(null);
+       
+        
+       
+       fn.setText(null);
        ed.setText(null);
        pn.setText(null);
        usn.setText(null);
        pwd.setText(null);
        cp.setText(null);
 
+        if(fn.getText().isEmpty()&&fn.getText().isEmpty()&&ed.getText().isEmpty()&&pn.getText().isEmpty()&&usn.getText().isEmpty()&&pwd.getText().isEmpty()&&cp.getText().isEmpty()){
         
+    }
+                {
+        
+    }
+      dbConnector dbc = new dbConnector();
+    
+        dbc.insertData("INSERT INTO tbl_rigester(r_fn, r_ln,r_un,r_pass,r_cpass,r_type,r_status)"+
+                "VALUES("+fn.getText()+"','"+ed.getText()+"','"+pn.getText()+"','"+usn.getText()+"','"+pwd.getText()+"','"+cp.getText()+"','"
+                        + "'Pending')");
+            
+        
+         {
+             JOptionPane.showMessageDialog(null, "Register Successfully");
+             Login l = new Login();
+             l.setVisible(true);
+             this.dispose();
+             
+            
+             
+         }
          
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  
-    String fullname=fname.getText();
+    String fullname=fn.getText();
     String emailaddress=ed.getText();
     String phonenumber=pn.getText();
    
@@ -245,10 +269,10 @@ public class Registerform extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
  
-    private void fnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnameKeyReleased
+    private void fnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnKeyReleased
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_fnameKeyReleased
+    }//GEN-LAST:event_fnKeyReleased
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -275,7 +299,7 @@ public class Registerform extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void clearFields(){
-       fname.setText(null);
+       fn.setText(null);
        ed.setText(null);
        pn.setText(null);
        usn.setText(null);
@@ -323,7 +347,7 @@ public class Registerform extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cp;
     private javax.swing.JTextField ed;
-    private javax.swing.JTextField fname;
+    private javax.swing.JTextField fn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
