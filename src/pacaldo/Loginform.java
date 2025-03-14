@@ -46,7 +46,7 @@ public static boolean loginAcc(String username, String password){
         login = new javax.swing.JButton();
         exit = new javax.swing.JButton();
         jshowpassword = new javax.swing.JCheckBox();
-        register = new javax.swing.JLabel();
+        rn = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,18 +94,18 @@ public static boolean loginAcc(String username, String password){
         });
         jPanel1.add(jshowpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
 
-        register.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        register.setForeground(new java.awt.Color(255, 255, 255));
-        register.setText("Register new!");
-        register.addMouseListener(new java.awt.event.MouseAdapter() {
+        rn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        rn.setForeground(new java.awt.Color(255, 255, 255));
+        rn.setText("Register new!");
+        rn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerMouseClicked(evt);
+                rnMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registerMouseEntered(evt);
+                rnMouseEntered(evt);
             }
         });
-        jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+        jPanel1.add(rn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,7 +137,7 @@ public static boolean loginAcc(String username, String password){
         else if(pass.getText().equals("")){
         JOptionPane.showMessageDialog(null, "Please fill out password!");
         }
-        else if(pass.getText().contains("markey123")&&pass.getText().contains("markey12345"))
+        else if(pass.getText().contains("test")&&pass.getText().contains(""))
             JOptionPane.showMessageDialog(null, "Login Successfuly");
         else{
             JOptionPane.showMessageDialog(null, "Wrong username or password!", "message",JOptionPane.ERROR_MESSAGE);
@@ -145,15 +145,10 @@ public static boolean loginAcc(String username, String password){
         if(loginAcc(un.getText(),pass.getText())){
           JOptionPane.showMessageDialog(null,"Login SUCCESFULLY!");
         
-    }else{
-     JOptionPane.showMessageDialog(null,"Login FAILD!");
-       AdminDasboardpage adsp = new  AdminDasboardpage ();
-          adsp.setVisible(true);
-          this.dispose();
-    }
+    
         
     }//GEN-LAST:event_loginActionPerformed
-
+       }
     private void jshowpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jshowpasswordActionPerformed
         // TODO add your handling code here:
         if(jshowpassword.isSelected()){
@@ -170,20 +165,20 @@ public static boolean loginAcc(String username, String password){
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
-    private void registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseEntered
+    private void rnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rnMouseEntered
         // TODO add your handling code here:
         
  
-    }//GEN-LAST:event_registerMouseEntered
+    }//GEN-LAST:event_rnMouseEntered
 
-    private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
-        // TODO add your handling code here:
-       Registerform rgf=new Registerform();
+    private void rnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rnMouseClicked
+       
+       Registerform rgf= new Registerform();
        rgf.setVisible(true);
        this.dispose();
         
      
-    }//GEN-LAST:event_registerMouseClicked
+    }//GEN-LAST:event_rnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -229,7 +224,7 @@ public static boolean loginAcc(String username, String password){
     private javax.swing.JCheckBox jshowpassword;
     private javax.swing.JButton login;
     private javax.swing.JPasswordField pass;
-    private javax.swing.JLabel register;
+    private javax.swing.JLabel rn;
     private javax.swing.JTextField un;
     // End of variables declaration//GEN-END:variables
 }
