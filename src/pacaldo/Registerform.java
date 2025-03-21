@@ -194,9 +194,10 @@ public class Registerform extends javax.swing.JFrame {
         
       dbConnector dbc = new dbConnector();
     
-        dbc.insertData("INSERT INTO tbl_register(r_fn, r_ln,r_ed,r_pn,r_un,r_pd)"+
-                "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+ed.getText()+"','"+pn.getText()+"','"+un.getText()+"','"+pd.getText()
-                        + "','Pending')");
+        dbc.insertData("INSERT INTO tbl_Register(fn, ln, ed, pn, un, pd)"+
+                "VALUES('"+fn.getText()+"','"+ln.getText()+"','"+ed.getText()+"','"+pn.getText()+"','"+un.getText()+"','"+
+               pd.getText()+"','Pending')");
+                        
     
         
          {

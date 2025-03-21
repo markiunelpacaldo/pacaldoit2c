@@ -1,7 +1,6 @@
 
 package pacaldo;
 
-import admin.AdminDasboardpage;
 import db.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,6 +62,12 @@ public static boolean loginAcc(String username, String password){
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, 30));
+
+        un.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unActionPerformed(evt);
+            }
+        });
         jPanel1.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 230, 30));
         jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 230, 30));
 
@@ -144,6 +149,11 @@ public static boolean loginAcc(String username, String password){
         }
         if(loginAcc(un.getText(),pass.getText())){
           JOptionPane.showMessageDialog(null,"Login SUCCESFULLY!");
+          
+         Registerform rgf = new Registerform();
+         rgf.setVisible(true);
+         this.dispose();
+        
         
     
         
@@ -179,6 +189,10 @@ public static boolean loginAcc(String username, String password){
         
      
     }//GEN-LAST:event_rnMouseClicked
+
+    private void unActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unActionPerformed
 
     /**
      * @param args the command line arguments
